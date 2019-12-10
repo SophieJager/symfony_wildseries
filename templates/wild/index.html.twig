@@ -8,6 +8,7 @@
         <div>
             <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
             <p>{{ program.summary }}</p>
+            <p><a href="{{ path('wild_show') }}/{{ program.title | replace({' ': '-'}) | lower }}">Voir  en détail ...</a></p>
         </div>
     {% else %}
         Aucune série trouvée.
