@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Program;
 use App\Entity\Category;
 use App\Entity\Season;
+use App\Entity\Episode;
 
 /**
  * Class WildController
@@ -60,7 +61,6 @@ class WildController extends AbstractController
             ->findBy(['program' => $program], ['number' => 'asc']);
 
         return $this->render('wild/show.html.twig', [
-            'slug' => $slug,
             'program' => $program,
             'seasons' => $seasons,
         ]);
@@ -124,6 +124,26 @@ class WildController extends AbstractController
             'season' => $season,
             'program' => $program,
             'episodes' => $episodes,
+        ]);
+    }
+
+    /**
+     *
+     * @Route("/episode/{id}", name="show_episode")
+     * @param Episode $episode
+     * @return Response
+     */
+    public function showEpisode(Episode $episode) :Response
+    {
+        $season = $episode->getSeason();
+        $program = $season->getProgram();
+        $unslugProgram = strtolower(str_replace(' ','-', $program->getTitle()));
+
+        return $this->render('wild/episode.html.twig', [
+            'episode'=>$episode,
+            'program'=>$program,
+            'unslug'=>$unslugProgram,
+            'season'=>$season
         ]);
     }
 }

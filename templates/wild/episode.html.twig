@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title %}{% endblock %}
+
+{% block body %}
+
+    <div class="media">
+        <div class="media-body">
+
+            <h1 class="mt-0"><a href="{{ path('wild_show', { 'slug': unslug } ) }}">{{ program.title }}</h1>
+            <p><a href="{{ path('wild_show_season', {'seasonId': season.id}) }}">Saison n° {{ season.number }}</a></p>
+            <p>Episode n°{{ episode.number }} : {{ episode.title }}</p>
+            <p> {{ episode.synopsis }} </p>
+        </div>
+    </div>
+
+    <a href="{{ path('wild_index') }}">
+        Retour à l'accueil
+    </a>
+{% endblock %}

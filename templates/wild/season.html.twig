@@ -5,13 +5,13 @@
 
     <div class="media">
         <div class="media-body">
-            <h1 class="mt-0">{{ program.title }}</h1>
+            <h1 class="mt-0"><a href="{{ path('wild_show') }}/{{ program.title | replace({' ': '-'}) | lower }}">{{ program.title }}</a></h1>
             <p>Saison n° {{ season.number }}</p>
 
 
             <ul>
                 {% for episode in episodes %}
-                    <h2>Episode n°{{ episode.number }} : {{ episode.title }}</h2>
+                    <h2><a href="{{ path('wild_show_episode', { 'id': episode.id }) }}">Episode n°{{ episode.number }} : {{ episode.title }}</a></h2>
                     <p> {{ episode.synopsis }} </p>
                 {% endfor %}
             </ul>
