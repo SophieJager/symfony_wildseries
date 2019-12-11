@@ -1,6 +1,5 @@
 # symfony_wildseries
 
 
-## Liens vers les vidéos
-### Quête n°9 
-https://www.loom.com/share/8c836a521ef84e3faf0792c8a4adcced
+### Quête n°9  &  n°10
+https://www.loom.com/share/9473d1cd864b4b5abbf60ae4dd241847
